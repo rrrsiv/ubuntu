@@ -1,0 +1,87 @@
+# - name: Create an issue
+#   community.general.jira:
+#     uri: https://genus.nagarro.com
+#     username: sysadmin
+#     password: N@gar004321
+#     project: BBBP
+#     operation: create
+#     summary: Recurring Issue
+#     description: This is a recurring issue.
+#     issuetype: Task
+#   args:
+#     fields:
+#         components": {"name": Delivery}
+#         customfield_10015": {"value": Low}
+#         duedate": "2023-11-22"
+#         customfield_36149": {"value": "Yes"}
+#         customfield_34454": {"value": "Digital commerce"}
+#         customfield_34443": "nagarro.com"
+#         customfield_28440": {"value": "BU5"}
+#         customfield_29541": "nagarro"
+#         customfield_36044": {"value": "sajal.dubey@nagarro.com"}
+#         customfield_35948": {"value": "India"}
+#         customfield_34458": {"value": "sivakumar.ramani@nagarro.com"}
+#         customfield_34455: {
+#          "self": "https://genus.nagarro.com/rest/api/2/customFieldOption/20400",
+#          "value": "Administrative",
+#          "id": "20400",
+#          "disabled": false,
+#          "child": {
+#            "self": "https://genus.nagarro.com/rest/api/2/customFieldOption/20403",
+#            "value": "Knowledge transfer",
+#            "id": "20403",
+#            "disabled": false
+#           }
+#         }
+#         customfield_34456: {
+#          "self": "https://genus.nagarro.com/rest/api/2/customFieldOption/22085",
+#          "value": "CCM",
+#          "id": "22085",
+#          "disabled": false,
+#          "child": {
+#            "self": "https://genus.nagarro.com/rest/api/2/customFieldOption/22086",
+#            "value": "Quadient Inspire",
+#            "id": "22086",
+#            "disabled": false
+#           }
+#         }
+#   register: issue
+
+
+
+
+---
+- name: Create an issue
+  hosts: localhost
+  tasks:
+    - name: Create Jira Issue
+      community.general.jira:
+        uri: https://genus.nagarro.com
+        username: sysadmin
+        password: N@gar004321
+        project: BBBP
+        operation: create
+        summary: Recurring Issue
+        description: This is a recurring issue.
+        issuetype: Task
+        fields:
+          components: [{"name": "Delivery"}]
+          customfield_10015: {"value": "Low"}
+          duedate: "2023-11-22"
+          customfield_36149: {"value": "Yes"}
+          customfield_34454: {"value": "Digital commerce"}
+          customfield_34443: "nagarro.com"
+          customfield_28440: {"value": "BU5"}
+          customfield_29541: "nagarro"
+          customfield_36044: {"value": "sajal.dubey@nagarro.com"}
+          customfield_35948: {"value": "India"}
+          customfield_34458: {"name": "sandeepkumar07"}
+
+          customfield_34455: {"value": "Administrative", "child": {"value": "Knowledge transfer"}}
+          customfield_34456: {"value": "CCM", "child": {"value": "Quadient Inspire"}}
+          customfield_34454: [{"value": "Digital commerce"}]
+      register: issue
+
+    - name: Print Issue Details
+      debug:
+        var: issue

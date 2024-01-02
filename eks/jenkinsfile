@@ -1,0 +1,90 @@
+pipeline {
+        agent any
+       
+parameters {
+       string(name: 'environment', defaultValue: 'default', description: 'Workspace/environment file to use for deployment')
+        string(name: 'aws_region', defaultValue: 'us-east-1', description: 'specify the region to provision resources')
+        choice(name: 'action', choices:['apply', 'destroy'] , description: 'Do you want to perform terraform apply or destroy?')
+        string(name: 'devops_admin_role_id', defaultValue: 'AWSReservedSSO_AdministratorAccess_8f351b5c6bbc3082', description: 'Specify Admin role id')
+        string(name: 'jenkins_oidc_role_id', defaultValue: 'jenkins-test-oidc-role', description: 'specify jenkins OIDC role id')
+        string(name: 'jenkins_ec2_role_id', defaultValue: 'jenkins-ec2-role', description: 'specify jenkins EC2 role id')
+        string(name: 'account_id', defaultValue: '395381149792', description: 'specify account id ')
+        string(name: 'node_api_desiredsize', defaultValue: "3", description: 'desired value of number of nodes in node group')
+        string(name: 'node_solr_desiredsize', defaultValue: "3", description: 'desired value of number of nodes in node group')
+        string(name: 'node_backoffice_desiredsize', defaultValue: "3", description: 'desired value of number of nodes in node group')
+        string(name: 'node_background_desiredsize', defaultValue: "3", description: 'desired value of number of nodes in node group')
+        string(name: 'node_api_maxsize', defaultValue: "5", description: 'desired value of number of nodes in node group')
+        string(name: 'node_solr_maxsize', defaultValue: "5", description: 'desired value of number of nodes in node group')
+        string(name: 'node_backoffice_maxsize', defaultValue: "5", description: 'desired value of number of nodes in node group')
+        string(name: 'node_background_maxsize', defaultValue: "5", description: 'desired value of number of nodes in node group')
+        string(name: 'approve', defaultValue: '-auto-approve', description: 'Automatically run apply after generating plan?')
+    }
+    stages {
+        stage('Terraform init and Plan') {
+            steps {
+                script{
+                if(action == "apply"){ 
+                dir("EKS-Cluster-Addons") {
+                sh 'tfenv use 1.2.9'
+                sh 'bash setup.sh ${environment}'
+                sh "terraform init"
+                sh 'terraform plan -out tfplan' 
+                sh 'terraform show -no-color tfplan > tfplan.txt'
+                }
+                }
+                else {
+                dir("EKS-Cluster-Addons") {
+                sh 'tfenv use 1.2.9'
+                sh 'bash setup.sh ${environment}'
+                sh "terraform init"
+                sh 'terraform plan -out tfplan -${action}' 
+                sh 'terraform show -no-color tfplan > tfplan.txt'
+                    } 
+                }
+            }
+            }
+        }
+        stage('Approval and apply for EKS') {
+            steps {
+                  script{
+                        def apply = false
+                        try {
+                            input message: 'Review the above tfPlan and confirm apply', ok: 'Apply'
+                            apply = true
+                        } catch (err) {
+                            apply = false
+                            echo 'Further terraform code will not be executed, Terraform Plan is not approved.'
+                        }
+                     if(apply){ 
+                        if(action == "apply"){  
+                            dir("EKS-Cluster-Addons") {
+                sh "terraform ${action} ${approve}"
+                        }
+                        }
+                         else {
+                        dir("EKS-Cluster-Addons") {
+                sh "terraform ${action} ${approve}"
+                         } 
+                
+            }
+                  }
+                  }
+            }
+        }
+    }
+    post {
+    success {
+            script{
+        if(action == "apply"){
+        slackSend channel: "jenkins-test-build", color: "good", message: "Hybris EKS Cluster resource provisioning is completed successfully.\n Cluster_name = ${environment}_tsu_hybris_eks_cluster \n Job_name - ${env.JOB_NAME} \n Build_Number - ${env.BUILD_NUMBER} \n Job_URL - ${env.BUILD_URL}"
+        }
+        else{
+        slackSend channel: "jenkins-test-build", color: "good", message: "Hybris EKS Cluster resource destroy is completed successfully.\n Cluster_name = ${environment}_tsu_hybris_eks_cluster \n Job_name - ${env.JOB_NAME} \n Build_Number - ${env.BUILD_NUMBER} \n Job_URL - ${env.BUILD_URL}"
+      } 
+    }
+    }
+      failure {
+        slackSend failOnError:true, color: "red", message: "Hybris EKS cluster pipeline is failed.\n Cluster_name = ${environment}_tsu_hybris_eks_cluster \n Job_name - ${env.JOB_NAME} \n Build_Number - ${env.BUILD_NUMBER} \n Job_URL - ${env.BUILD_URL}"
+    }  
+    }
+}

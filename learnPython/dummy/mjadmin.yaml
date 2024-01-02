@@ -1,0 +1,84 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: mjadmin
+  name: emp-react-mjadmin
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: emp-react-mjadmin
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: emp-react-mjadmin
+    spec:
+      containers:
+      - image: 453708032754.dkr.ecr.ap-south-1.amazonaws.com/prod-emp-react-mjadmin:9dd0d2d620230829075554
+        imagePullPolicy: Always
+        name: emp-react-mjadmin
+        ports:
+        - containerPort: 88
+        resources:
+          limits:
+            cpu: 750m
+            memory: 750Mi
+          requests:
+            cpu: 500m
+            memory: 500Mi
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: mjadmin
+  name: emp-react-mjadmin
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/inbound-cidrs: 10.128.0.0/16, 172.16.0.0/16, 10.132.80.45/32
+    alb.ingress.kubernetes.io/healthcheck-port: '88'
+    alb.ingress.kubernetes.io/group.name: emp-app-prod-group
+spec:
+  ingressClassName: alb
+  rules:
+    - host: mjops-exportmarket.mjunction.in
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: emp-react-mjadmin
+              port:
+                number: 80
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: mjadmin
+  name: emp-react-mjadmin
+spec:
+  ports:
+    - port: 80
+      targetPort: 88
+      protocol: TCP
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: emp-react-mjadmin
+
+---
+
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: emp-react-mjadmin
+  namespace: mjadmin
+spec:
+  maxUnavailable: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: emp-react-mjadmin

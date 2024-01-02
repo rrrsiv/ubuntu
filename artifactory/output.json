@@ -1,0 +1,518 @@
+[
+  {
+    "repoKey": "NPM-maven-cache",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "artifactory-build-info",
+    "usedSpace": "2.66 GB"
+  },
+  {
+    "repoKey": "auto-trashcan",
+    "usedSpace": "755.05 MB"
+  },
+  {
+    "repoKey": "sc-jboss-public-pr-cache",
+    "usedSpace": "98.32 MB"
+  },
+  {
+    "repoKey": "NYC-HPD",
+    "usedSpace": "3.87 GB"
+  },
+  {
+    "repoKey": "sc-siemens-epiq-snapshot-hr",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "RMC-COBRA-NEW",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "CI-Automation-Basic-JAVA",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "devops",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "EXPAP",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "msil-bsc-artifact-repo",
+    "usedSpace": "45.84 MB"
+  },
+  {
+    "repoKey": "CI-Automation-JAVA-Pipeline-Repay",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "InA-accelerator",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "parking_app_munich",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "QNAP",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "msil-crm-artifactory",
+    "usedSpace": "7.42 GB"
+  },
+  {
+    "repoKey": "ecommerce1",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "bmw-boe",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "serverdb",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "Test_drivers",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "ivy-central-cache",
+    "usedSpace": "137.71 MB"
+  },
+  {
+    "repoKey": "npmjs",
+    "usedSpace": "287 bytes"
+  },
+  {
+    "repoKey": "redington-snapshots",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "forcam",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "maruti-fmp-snapshots",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "plugins-release",
+    "usedSpace": "1.68 GB"
+  },
+  {
+    "repoKey": "nagarro-digital-vault",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "ACCNITELLNTL",
+    "usedSpace": "21.24 GB"
+  },
+  {
+    "repoKey": "NAGCOEIOT",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "MNJ-INS",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "sc-maven-central-pr-cache",
+    "usedSpace": "721.07 MB"
+  },
+  {
+    "repoKey": "CXF-Apache-cache",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "Devops-test",
+    "usedSpace": "113.02 MB"
+  },
+  {
+    "repoKey": "Sonar-test",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "postbus",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "demo-repo-generic",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "nagarro-game-practice",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "CSX-EOT",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "BPC-siemens",
+    "usedSpace": "45.23 GB"
+  },
+  {
+    "repoKey": "ecommerce",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "sc-siemens-epiq-rg",
+    "usedSpace": "314 bytes"
+  },
+  {
+    "repoKey": "CSX-LMS",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "SFS",
+    "usedSpace": "1.06 KB"
+  },
+  {
+    "repoKey": "ptest",
+    "usedSpace": "11.22 MB"
+  },
+  {
+    "repoKey": "Jsw-dealer-app-android",
+    "usedSpace": "1.24 GB"
+  },
+  {
+    "repoKey": "NSC-Serverdb",
+    "usedSpace": "2.94 GB"
+  },
+  {
+    "repoKey": "smart_parking",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "TegrisFire",
+    "usedSpace": "77.99 GB"
+  },
+  {
+    "repoKey": "maruti-fmp-dependencies",
+    "usedSpace": "102.17 MB"
+  },
+  {
+    "repoKey": "test-artifactory-upgrade",
+    "usedSpace": "10.24 MB"
+  },
+  {
+    "repoKey": "nsc_artifacts",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "Accelerator-SitecoreSXA",
+    "usedSpace": "30.93 GB"
+  },
+  {
+    "repoKey": "BMW",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "sample",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "ivu_webcc",
+    "usedSpace": "1.30 GB"
+  },
+  {
+    "repoKey": "Maven-repo-Pipeline",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "test-new",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "NYCHPD",
+    "usedSpace": "9.71 GB"
+  },
+  {
+    "repoKey": "libs-release-local",
+    "usedSpace": "435.05 MB"
+  },
+  {
+    "repoKey": "testSDK",
+    "usedSpace": "292 bytes"
+  },
+  {
+    "repoKey": "DevopsLabSession",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "cafu",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "Accelerator-Drupal",
+    "usedSpace": "1.64 GB"
+  },
+  {
+    "repoKey": "siemens-ams-insurance-allocation",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "sc-redhat-techpreview-pr-cache",
+    "usedSpace": "214.75 MB"
+  },
+  {
+    "repoKey": "HOYHONSP",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "redington-dependencies",
+    "usedSpace": "46.18 KB"
+  },
+  {
+    "repoKey": "nagarro-training",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "libs-snapshot",
+    "usedSpace": "1.68 GB"
+  },
+  {
+    "repoKey": "libs-snapshot-local",
+    "usedSpace": "62.62 MB"
+  },
+  {
+    "repoKey": "CI_Infrastructure_Verification",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "aem-accelerator",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "nagarro-digital-vault-npm",
+    "usedSpace": "40.01 KB"
+  },
+  {
+    "repoKey": "msil-mi-crm-jfrog-repo",
+    "usedSpace": "490.84 MB"
+  },
+  {
+    "repoKey": "ext-snapshot-local",
+    "usedSpace": "1.12 GB"
+  },
+  {
+    "repoKey": "plugins-snapshot-local",
+    "usedSpace": "322 bytes"
+  },
+  {
+    "repoKey": "eStrategy-resources",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "remote-repos",
+    "usedSpace": "1.68 GB"
+  },
+  {
+    "repoKey": "smart-parking",
+    "usedSpace": "178.33 KB"
+  },
+  {
+    "repoKey": "Mifos-Mobile-Droid",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "test",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "jmwave",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "demo-repo-maven",
+    "usedSpace": "112.02 MB"
+  },
+  {
+    "repoKey": "msmp-jfrog-repo",
+    "usedSpace": "71.01 GB"
+  },
+  {
+    "repoKey": "Salesforce-Techtonic",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "DevopsLabs-test",
+    "usedSpace": "613.02 MB"
+  },
+  {
+    "repoKey": "CSX-Mobile",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "Lutron-SerenaShades",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "AssaAbloyAR",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "maruti-fmp-releases",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "terraform",
+    "usedSpace": "371 bytes"
+  },
+  {
+    "repoKey": "Accelerator-SitecoreJSS",
+    "usedSpace": "8.55 GB"
+  },
+  {
+    "repoKey": "SiemensEPIQ",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "sc-siemens-epiq-release-hr",
+    "usedSpace": "977.54 MB"
+  },
+  {
+    "repoKey": "php-snapshot",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "devops-test-1",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "DSR-US",
+    "usedSpace": "1.74 GB"
+  },
+  {
+    "repoKey": "plugins-snapshot",
+    "usedSpace": "1.68 GB"
+  },
+  {
+    "repoKey": "msil-crm-artifactory1",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "Maven_central-cache",
+    "usedSpace": "90.95 MB"
+  },
+  {
+    "repoKey": "docker",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "Rex.smartIra-Andriod",
+    "usedSpace": "1.05 GB"
+  },
+  {
+    "repoKey": "s3-bucket",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "SiemensFrw-npmjs",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "DevopsPortal",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "SIEUPSIE",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "Salesforce",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "harish-repo",
+    "usedSpace": "497.20 KB"
+  },
+  {
+    "repoKey": "plugins-release-local",
+    "usedSpace": "820.99 KB"
+  },
+  {
+    "repoKey": "NPM-cache",
+    "usedSpace": "13.09 MB"
+  },
+  {
+    "repoKey": "RMC-COBRA",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "Inditex-sales-commercials",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "audiapim",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "IOS",
+    "usedSpace": "10.03 KB"
+  },
+  {
+    "repoKey": "redington-releases",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "CI-Automation-JAVA-Pipeline",
+    "usedSpace": "64.90 MB"
+  },
+  {
+    "repoKey": "sample-project",
+    "usedSpace": "5.09 MB"
+  },
+  {
+    "repoKey": "ext-release-local",
+    "usedSpace": "423.97 MB"
+  },
+  {
+    "repoKey": "jcenter-cache",
+    "usedSpace": "7.18 GB"
+  },
+  {
+    "repoKey": "test-gradle",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "AAB-Website",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "lufthansa.lcag-eportal",
+    "usedSpace": "92.84 MB"
+  },
+  {
+    "repoKey": "Jsw-dealer-app",
+    "usedSpace": "3.98 GB"
+  },
+  {
+    "repoKey": "a2adriven",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "charugarg_3802",
+    "usedSpace": "25.56 MB"
+  },
+  {
+    "repoKey": "libs-release",
+    "usedSpace": "1.69 GB"
+  },
+  {
+    "repoKey": "nagarro-digital-vault-docker",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "Genome",
+    "usedSpace": "0 bytes"
+  },
+  {
+    "repoKey": "terraform-test",
+    "usedSpace": "0 bytes"
+  }
+]

@@ -1,0 +1,87 @@
+
+pipeline{
+        agent any
+       
+parameters {
+        string(name: 'environment', defaultValue: 'default', description: 'Workspace/environment file to use for deployment')
+        string(name: 'secrets_name', defaultValue: 'default', description: 'specify secrets name from where to get username and password')
+        string(name: 'approve', defaultValue: '-auto-approve', description: 'Automatically run apply after generating plan?')
+        string(name: 'aws_region', defaultValue: 'us-east-1', description: 'specify the region to provision resources')
+        choice(name: 'action', choices:['apply', 'destroy'] , description: 'Do you want to perform terraform apply or destroy?')
+        choice(name: 'skip_final_snapshot', choices:['true', 'false'] , description: 'While destroying RDS instance if snapshot is required then select "false" or else select "true"')
+        choice(name: 'multi_az', choices:['false', 'true'] , description: 'Do you want multi-AZ ?')
+        string(name: 'db_size', defaultValue: 'db.m4.xlarge', description: 'Specify the DB instance size')
+    }
+
+    stages {
+        stage('Terraform init and Plan') {
+            steps {
+                script{
+                if(action == "apply"){ 
+                dir("RDS") {
+                sh 'tfenv use 1.2.9'
+                sh 'bash setup.sh ${environment}'
+                sh "terraform init"
+                sh 'terraform plan -out tfplan' 
+                sh 'terraform show -no-color tfplan > tfplan.txt'
+                }
+                }
+                else {
+                dir("RDS") {           
+                sh 'tfenv use 1.2.9'
+                sh 'bash setup.sh ${environment}'
+                sh "terraform init"
+                sh 'terraform plan -out tfplan -${action}' 
+                sh 'terraform show -no-color tfplan > tfplan.txt'
+                    } 
+                }
+            }
+            }
+            }
+        
+        stage('Approval and apply for RDS') {
+            steps {
+                  script{
+                        def apply = false
+                        try {
+                            input message: 'Review the above tfPlan and confirm apply', ok: 'Apply'
+                            apply = true
+                        } catch (err) {
+                            apply = false
+                            echo 'Further terraform code will not be executed, Terraform Plan is not approved.'
+                        }
+                     if(apply){ 
+                        if(action == "apply"){  
+                            dir("RDS") {
+                sh "terraform ${action} ${approve}"
+                
+                        }
+                        }
+                         else {
+                        dir("RDS") {
+                sh "terraform apply ${approve}"
+                sh "terraform ${action} ${approve}"
+                         }                
+            }
+                  }
+            }
+        }
+    }
+    }
+    post {
+    success {
+            script{
+        if(action == "apply"){
+        slackSend channel: "jenkins-test-build", color: "good", message: "RDS resource creation pipeline is completed successfully.\n RDS_name = ${environment}-tsu-hybris-mysql-rds \n Job_name - ${env.JOB_NAME} \n Build_Number - ${env.BUILD_NUMBER} \n Job_URL - ${env.BUILD_URL}"
+}
+        else(action == "destroy"){
+        slackSend channel: "jenkins-test-build", color: "good", message: "RDS resource destroy pipeline is completed successfully.\n RDS_name = ${environment}-tsu-hybris-mysql-rds \n Job_name - ${env.JOB_NAME} \n Build_Number - ${env.BUILD_NUMBER} \n Job_URL - ${env.BUILD_URL}"
+        }
+            }
+    }
+
+      failure {
+        slackSend failOnError:true, color: "red", message: "RDS pipeline is failed  \n RDS_name = ${environment}-tsu-hybris-mysql-rds \n Job_name - ${env.JOB_NAME} \n Build_Number - ${env.BUILD_NUMBER} \n Job_URL - ${env.BUILD_URL}"
+    }  
+    }
+}
